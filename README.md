@@ -1,8 +1,6 @@
 # 🔍 Flickr30k Image Search với CLIP + FAISS
 Hệ thống tìm kiếm ảnh ngữ nghĩa (semantic image search) sử dụng model CLIP để tạo embedding và FAISS để lưu trữ và tìm kiếm vector. Hỗ trợ tìm kiếm bằng cả **text** lẫn **ảnh**.
 
----
-
 ## 📁 Cấu trúc thư mục
 
 ```
@@ -16,8 +14,6 @@ project/
 └── requirements.md
 ```
 
----
-
 ## ⚙️ Cài đặt
 
 **Yêu cầu:** Python 3.8+
@@ -28,13 +24,9 @@ pip install sentence-transformers faiss-cpu pillow matplotlib numpy
 
 > Nếu có GPU, thay `faiss-cpu` bằng `faiss-gpu` để tăng tốc độ tìm kiếm.
 
----
-
 ## 📊 Dữ liệu
 
 Tải bộ dữ liệu [Flickr30k](https://www.kaggle.com/datasets/hsankesara/flickr-image-dataset) và đặt toàn bộ ảnh `.jpg` vào thư mục `data/flickr30k_images/`.
-
----
 
 ## 🚀 Hướng dẫn chạy
 
@@ -51,7 +43,6 @@ Mở file `main.ipynb` trong PyCharm và chạy lần lượt các cell:
 | **Cell 6** | Tìm kiếm bằng **text query** |
 | **Cell 8** | Tìm kiếm bằng **image query** |
 
----
 
 ## 💡 Cách sử dụng
 
@@ -70,8 +61,6 @@ visualize_results(query, retrieved_image_files)
 ```
 
 Tham số `top_k` trong `search_image()` điều chỉnh số lượng kết quả trả về (mặc định là 5).
-
----
 
 ## 🧠 Kiến trúc hệ thống
 
