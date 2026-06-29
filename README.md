@@ -1,5 +1,4 @@
 # 🔍 Flickr30k Image Search với CLIP + FAISS
-
 Hệ thống tìm kiếm ảnh ngữ nghĩa (semantic image search) sử dụng model CLIP để tạo embedding và FAISS để lưu trữ và tìm kiếm vector. Hỗ trợ tìm kiếm bằng cả **text** lẫn **ảnh**.
 
 ---
@@ -9,10 +8,10 @@ Hệ thống tìm kiếm ảnh ngữ nghĩa (semantic image search) sử dụng 
 ```
 project/
 ├── data/
-│   └── flickr30k_images/        # Chứa ~30.000 ảnh .jpg
+│   └── flickr30k_images/        
 ├── main.ipynb # Notebook chính
-├── index.faiss                  # Vector index (tự sinh sau bước 3)
-├── image_files.txt              # Danh sách đường dẫn ảnh (tự sinh sau bước 3)
+├── index.faiss                  # Vector index
+├── image_files.txt              # Danh sách đường dẫn ảnh
 └── README.md
 └── requirements.md
 ```
@@ -47,13 +46,10 @@ Mở file `main.ipynb` trong PyCharm và chạy lần lượt các cell:
 | **Cell 1** | Hiển thị 5 ảnh ngẫu nhiên từ dataset |
 | **Cell 2** | Tạo embedding cho toàn bộ ảnh bằng CLIP (`clip-ViT-B-32`) |
 | **Cell 3** | Xây dựng FAISS index và lưu ra file |
-| **Cell 4** | *(Tùy chọn)* Load lại index đã lưu, bỏ qua bước 2 & 3 |
-| **Cell 5** | Định nghĩa hàm `search_image()` |
-| **Cell 6** | Định nghĩa hàm `visualize_results()` |
-| **Cell 7** | Tìm kiếm bằng **text query** |
+| **Cell 4** | Định nghĩa hàm `search_image()` |
+| **Cell 5** | Định nghĩa hàm `visualize_results()` |
+| **Cell 6** | Tìm kiếm bằng **text query** |
 | **Cell 8** | Tìm kiếm bằng **image query** |
-
-> **Lưu ý:** Cell 2 (tạo embedding) sẽ mất nhiều thời gian với 30K ảnh. Sau khi chạy xong một lần, dùng Cell 4 để load lại index thay vì tạo lại từ đầu.
 
 ---
 
@@ -95,14 +91,3 @@ Text / Image Query
 - **CLIP** (`clip-ViT-B-32`): Model đa phương thức của OpenAI, encode cả text và ảnh vào cùng một không gian vector, cho phép so sánh trực tiếp giữa text và ảnh.
 - **FAISS** (`IndexFlatIP`): Tìm kiếm vector theo Inner Product (tương đương cosine similarity với vector đã normalize), hiệu quả với tập dữ liệu lớn.
 
----
-
-## 📦 Thư viện sử dụng
-
-| Thư viện | Mục đích |
-|----------|---------|
-| `sentence-transformers` | Load và chạy model CLIP |
-| `faiss-cpu` | Vector database, tìm kiếm similarity |
-| `Pillow` | Đọc và xử lý ảnh |
-| `numpy` | Xử lý mảng vector |
-| `matplotlib` | Hiển thị kết quả |
