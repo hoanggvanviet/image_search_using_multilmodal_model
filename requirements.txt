@@ -1,0 +1,5 @@
+faiss-cpu
+matplotlib
+numpy
+Pillow
+sentence-transformers
